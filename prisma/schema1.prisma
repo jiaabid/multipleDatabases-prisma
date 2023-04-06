@@ -1,0 +1,16 @@
+generator client {
+    provider = "prisma-client-js"
+    output   = "./generated/client1"
+}
+
+datasource db {
+    provider = "sqlserver"
+    url      = env("USER_DATABASE_URL")
+}
+
+
+model User {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
